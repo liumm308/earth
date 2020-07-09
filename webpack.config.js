@@ -22,6 +22,11 @@ module.exports = {
         host: 'localhost',
         port: '8001'
     },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src/'),
+        }
+    },
     module:{
         rules:[
             {
@@ -34,7 +39,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015', 'react'],
+                        presets: ['@babel/react','@babel/env'],
                     }
                 },
                 exclude: /node_modules/
@@ -47,7 +52,7 @@ module.exports = {
                         limit: 10000,
                     }
                 },
-                exclude: [path.resolve('src/icons')]
+                exclude: [path.resolve('src/assets/icons')]
             }
         ]
     },
