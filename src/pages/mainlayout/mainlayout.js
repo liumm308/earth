@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import './mainlayout.module.less';
 
 class MainLayout extends React.Component{
     constructor(props){
@@ -14,7 +15,7 @@ class MainLayout extends React.Component{
     render(){
         return(
             <div>
-                <div>Home</div>
+                <div className='test change'>Home</div>
                 <div>{this.props.children}</div>
             </div>
         )

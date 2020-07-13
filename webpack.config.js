@@ -35,11 +35,16 @@ module.exports = {
                 use:['style-loader','css-loader']
             },
             {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
                 test: /\.(js|jsx)$/,
                 use: {
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/react','@babel/env'],
+                        plugins: ['@babel/plugin-proposal-class-properties']
                     }
                 },
                 exclude: /node_modules/
@@ -48,9 +53,6 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use: {
                     loader: 'url-loader',
-                    options: {
-                        limit: 10000,
-                    }
                 },
                 exclude: [path.resolve('src/assets/icons')]
             }

@@ -8,7 +8,7 @@ import Login from '@/pages/Login'
 import Mainlayout from '@/pages/mainlayout/mainlayout';
 import Dashboard from '@/pages/dashboard/dashboard';
 import Business from '@/pages/business/business';
-//import NotFoundRoute from '@/components/NotFound'
+import NotFound from '@/components/NotFound/index.jsx'
 
 const configRouterArr = [
     {
@@ -32,7 +32,7 @@ const configRouterArr = [
             },
             {
                 path: '*',
-                component: null,
+                component: NotFound,
             }
         ],
     },
