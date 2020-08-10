@@ -4,9 +4,8 @@
  *@mail xidian_liu@163.com
  */
 import React from 'react';
+import './dashboard.module.less';
 
-export default function () {
-    return(
-        <div>dashboard</div>
-    )
+export default class Dashboard extends React.Component{
+
 }
