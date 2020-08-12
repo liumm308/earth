@@ -26,13 +26,9 @@ class MainLayout extends React.Component{
                     </div>
                 </Header>
                 <Content style={{ padding: '0 50px' }}>
-                    <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
-                        <Content className='contentDiv'>
-                            {this.props.children}
-                        </Content>
-                    </Layout>
+                    {this.props.children}
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center' }}>Data Dance ©2020 Created by Isaac Swift</Footer>
             </Layout>
         )
     }

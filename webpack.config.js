@@ -19,8 +19,7 @@ module.exports = {
         inline: true,
         progress: true,
         disableHostCheck: true,
-        host: 'localhost',
-        port: '8001'
+        port: '1122'
     },
     resolve: {
         alias: {
