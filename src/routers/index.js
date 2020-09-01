@@ -6,6 +6,7 @@
 
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import React,{Suspense} from 'react';
+import ErrorBoundary from '@/components/ErrorBoundary/index.jsx';
 import path from 'path';
 import { Spin } from 'antd';
 import routerArr from './routerArr'
@@ -27,43 +28,45 @@ const loading = (
 export default () => {
     return (
         <Router>
-            <Switch>
-                {routerArr.map((route, id) => {
-                    const { component: RouteComponent, children, ...others } = route;
-                    if (!children) {
-                        return RouteItem({
-                            key: id,
-                            ...route,
-                        });
-                    } else {
-                        return (
-                            <Route
-                                key={id}
-                                {...others}
-                                component={props => {
-                                    return (
-                                        <RouteComponent key={id} {...props}>
-                                            <Suspense fallback={loading}>
-                                                <Switch>
-                                                    {children.map((routeChild, idx) => {
-                                                        const { path: childPath ,component} = routeChild;
-                                                        return RouteItem({
-                                                            key: `${id}-${idx}`,
-                                                            ...routeChild,
-                                                            path: childPath && path.join(route.path, childPath),
-                                                            component,
-                                                        });
-                                                    })}
-                                                </Switch>
-                                            </Suspense>
-                                        </RouteComponent>
-                                    );
-                                }}
-                            />
-                        );
-                    }
-                })}
-            </Switch>
+            <ErrorBoundary>
+                <Switch>
+                    {routerArr.map((route, id) => {
+                        const { component: RouteComponent, children, ...others } = route;
+                        if (!children) {
+                            return RouteItem({
+                                key: id,
+                                ...route,
+                            });
+                        } else {
+                            return (
+                                <Route
+                                    key={id}
+                                    {...others}
+                                    component={props => {
+                                        return (
+                                            <RouteComponent key={id} {...props}>
+                                                <Suspense fallback={loading}>
+                                                    <Switch>
+                                                        {children.map((routeChild, idx) => {
+                                                            const { path: childPath ,component} = routeChild;
+                                                            return RouteItem({
+                                                                key: `${id}-${idx}`,
+                                                                ...routeChild,
+                                                                path: childPath && path.join(route.path, childPath),
+                                                                component,
+                                                            });
+                                                        })}
+                                                    </Switch>
+                                                </Suspense>
+                                            </RouteComponent>
+                                        );
+                                    }}
+                                />
+                            );
+                        }
+                    })}
+                </Switch>
+            </ErrorBoundary>
         </Router>
     );
 };
