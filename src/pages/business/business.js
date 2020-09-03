@@ -32,7 +32,7 @@ class Business extends React.Component {
                 <Button onClick={() => {
                     this.test();
                 }} type={"primary"}>查询状态</Button>
-                <Button onClick={()=>{
+                <Button onClick={() => {
                     this.setValue()
                 }}>设置状态</Button>
             </div>
