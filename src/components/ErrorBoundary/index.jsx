@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.module.less';
 
 /**
- * 应用错误便捷
+ * 错误边界
  */
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ export default class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            return <div className={styles["errorBoundary-content"]}>
+            return <div>
               <div className={styles['errorBoundary-tip']}>页面产生错误，请联系管理员!</div>
 
             </div>;

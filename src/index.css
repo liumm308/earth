@@ -18,3 +18,10 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.mainContent{
+  display: flex;
+  margin: 10px 0;
+  height: 100%;
+  flex: 1;
+}

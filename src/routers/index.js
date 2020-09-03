@@ -27,8 +27,8 @@ const loading = (
 
 export default () => {
     return (
-        <Router>
-            <ErrorBoundary>
+        <ErrorBoundary>
+            <Router>
                 <Switch>
                     {routerArr.map((route, id) => {
                         const { component: RouteComponent, children, ...others } = route;
@@ -66,7 +66,7 @@ export default () => {
                         }
                     })}
                 </Switch>
-            </ErrorBoundary>
-        </Router>
+            </Router>
+        </ErrorBoundary>
     );
 };

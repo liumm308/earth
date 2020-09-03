@@ -5,15 +5,37 @@
  */
 
 import React from 'react';
+import {Button} from 'antd';
+import Store from '@/store/index';
 
-class Business extends React.Component{
-    constructor(props){
+class Business extends React.Component {
+    constructor(props) {
         super(props);
     }
 
-    render(){
-        return(
-            <div>Business</div>
+    test() {
+        let storeInfo = Store.getState();
+        console.log(storeInfo);
+    }
+
+    setValue() {
+        let action = {
+            type: 'bgColor',
+            bgColor: "blue",
+        };
+        Store.dispatch(action);
+    }
+
+    render() {
+        return (
+            <div className={'mainContent'}>
+                <Button onClick={() => {
+                    this.test();
+                }} type={"primary"}>查询状态</Button>
+                <Button onClick={()=>{
+                    this.setValue()
+                }}>设置状态</Button>
+            </div>
         )
     }
 }

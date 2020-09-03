@@ -21,36 +21,36 @@ Oldie(Highcharts);
 Printing(Highcharts);
 Wordcloud(Highcharts);
 
-export default class Dashboard extends React.Component{
+export default class Dashboard extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             inputData: [],
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getInputData();
         this.getChartData();
     }
 
-    getInputData(){
+    getInputData() {
         this.setState({
             inputData: data.loveInfo()
         });
     }
 
-    getChartData(){
+    getChartData() {
 
         let chart = Highcharts.chart('dataDanceCharts', {
             credits: {
-                enabled:false
+                enabled: false
             },
-            //colors: ['#aa44de','#59ADED','#EB5962','#F7C739','#EB5962','#7585A2','#aa44de','#F7C739','#F58C61','#EB5962','#FC8BB4','#7F73DF','#59ADED','#45B1A9'],
+            colors: ['#aa44de', '#59ADED', '#EB5962', '#F7C739', '#EB5962', '#7585A2', '#aa44de', '#F7C739', '#F58C61', '#EB5962', '#FC8BB4', '#7F73DF', '#59ADED', '#45B1A9'],
             series: [{
                 type: 'wordcloud',
-                data: data.loveInfo().slice(0,200)
+                data: data.loveInfo().slice(0, 200)
             }],
             title: {
                 text: '七夕口红店销量'
@@ -58,8 +58,8 @@ export default class Dashboard extends React.Component{
         });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className='dashboardBody'>
                 <div id='dataDanceCharts' style={{width: '100%', height: '100%'}}></div>
             </div>
