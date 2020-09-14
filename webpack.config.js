@@ -79,8 +79,10 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/react','@babel/env'],
-                        plugins: ['@babel/plugin-proposal-class-properties',
-                                  [ "import", { "libraryName": "antd", "libraryDirectory": "es", "style": true } ]
+                        plugins: [
+                                  [ "import", { "libraryName": "antd", "libraryDirectory": "es", "style": true } ],
+                                  ["@babel/plugin-proposal-decorators", {"legacy": true}],
+                                  ["@babel/plugin-proposal-class-properties", { "loose": true }]
                                 ]
                     }
                 },

@@ -7,6 +7,16 @@
 import React from 'react';
 import {Button} from 'antd';
 import Store from '@/store/index';
+const decorator = require('@/decorator/decorator');
+const log = decorator.log;
+
+
+@log
+class A {
+
+}
+
+let a = new A();
 
 class Business extends React.Component {
     constructor(props) {
@@ -26,6 +36,15 @@ class Business extends React.Component {
         Store.dispatch(action);
     }
 
+    testD(params){
+       A.printLogMethod(params);
+    }
+
+    @log
+    testK(){
+
+    }
+
     render() {
         return (
             <div className={'mainContent'}>
@@ -35,6 +54,9 @@ class Business extends React.Component {
                 <Button onClick={() => {
                     this.setValue()
                 }}>设置状态</Button>
+                <Button onClick={() => {
+                    this.testD('ddddd')
+                }}>测试</Button>
             </div>
         )
     }
