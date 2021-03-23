@@ -18,7 +18,10 @@ var decorator = {
 				console.log(e);
 			} 
 		};
-	}
+	},
+	doLog: function(tar){
+		console.log(tar);
+	},
 };
 
 module.exports = decorator;
