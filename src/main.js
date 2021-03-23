@@ -9,7 +9,6 @@ import routers from '@/routers';
 import './index.css';
 
 
-
 ReactDOM.render(
     routers(),
     document.getElementById('root')
