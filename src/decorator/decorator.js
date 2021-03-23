@@ -18,10 +18,14 @@ var decorator = {
 				console.log(e);
 			} 
 		};
-	}
+	},
 	test: function(params){
+		console.log(params);
+	},
+};
 
-	}
+let obj = {
+
 };
 
 module.exports = decorator;
