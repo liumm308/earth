@@ -19,6 +19,9 @@ var decorator = {
 			} 
 		};
 	}
+	test: function(params){
+
+	}
 };
 
 module.exports = decorator;
